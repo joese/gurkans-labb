@@ -1,0 +1,244 @@
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', system-ui;
+    font-size: 1em;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1600px;
+    min-height: 100vh;
+}
+
+.top-items {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    margin-left: 1em
+}
+
+.top-items div {
+    max-width: 50%;
+}
+
+.top-left {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+}
+
+.top-left .logo {
+    width: 80px;
+    height: 80px;
+}
+
+.blue-top-container {
+    height: auto;
+    padding: 5%;
+    width: 100%;
+    border-radius: 0 0 0 162px;
+    background-color: #2F80ED;
+}
+
+.rubrikblåfyrkant {
+    font-size: 130%;
+    font-weight: 300;
+    line-height: 200%;
+    letter-spacing: -0.06em;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+.textblåfyrkant {
+    font-size: 100%;
+    font-weight: 300;
+    line-height: 200%;
+    letter-spacing: -0.06em;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+#studeramera {
+    display: flex;
+    /*flexbox används*/
+    flex-direction: column;
+    /*fördelar elementen till id:et vertikalt.*/
+    margin-left: -5%;
+    /*flyttar elementet mot höger*/
+    margin-top: 5%;
+    /*ökar avståndet från elementet ovan*/
+    max-width: 100%;
+    /*begränsar bredden för elementet ifall viewport ökas/minskas*/
+
+}
+
+#rubrikstuderamera {
+    font-size: 300%;
+    font-weight: 700;
+    line-height: 91px;
+    letter-spacing: -0.06em;
+    text-align: left;
+}
+
+.img-container {
+    display: flex;
+    justify-content: space-around;
+    /*skapar mellanrum mellan bilderna och webbläsarens sidor*/
+    flex-direction: row;
+    /*placerar bilderna längst horisontell axel */
+    max-width: 100%;
+    /*maximal bredd för containern. Ser till att img inte kan sträckas över*/
+    margin-top: 10%;
+    /*flyttar ner containern längre ner på sidan*/
+
+}
+
+.img-container img {
+    width: 15%;
+    /*justerar så bilderna inte blir större än containern*/
+    height: auto;
+    max-width: 100%;
+    border-radius: 55px;
+    /*rundar kanterna på bilderna*/
+    opacity: 80%;
+}
+
+#rektangel {
+    display: flex;
+    flex-direction: column;
+    /*sätter <p> under <h1>*/
+    align-items: flex-start;
+    /*flyttar containern till vänster på sidan*/
+    margin-top: 5%;
+    background: #E0ECFD;
+    width: 65%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0 55px 55px 0;
+    margin-bottom: 1em;
+}
+
+#rubrikrektangel {
+    font-size: 200%;
+    font-weight: 600;
+    line-height: 200%;
+    letter-spacing: -0.04em;
+    text-align: left;
+    color: #2F80ED;
+}
+
+#textrektangel {
+    font-size: 100%;
+    font-weight: 400;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-top: -2%;
+}
+
+h1 {
+    /*flyttar ut rubriken från vänster av webbläsaren*/
+    margin-left: 10%;
+}
+
+p {
+    /*flyttar ut texten från vänster av webbläsaren*/
+    margin-left: 10%;
+}
+
+footer {
+    background: #2F80ED;
+    padding: 1%;
+    margin-top: auto;
+}
+
+footer p {
+    font-family: Inter;
+    font-size: 100%;
+    font-weight: 200;
+    line-height: 90%;
+    letter-spacing: 0em;
+    color: #FFFFFF;
+    text-align: left;
+    margin-left: 2%;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 600px) {
+
+
+
+    #rektangel {
+        order: -0;
+        /*Elementet hamnar under #studermera.*/
+
+    }
+
+    #studeramera {
+        order: -1;
+        /*Elementet hamnar ovanför #rektangel*/
+    }
+
+    #blåfyrkant {
+        display: none;
+        /*elementet försvinner vid 600px och mindre*/
+    }
+
+    .img-container {
+        display: flex;
+        flex-direction: column;
+        /*staplar bilderna vertikalt*/
+        align-items: center;
+        /*centrerar bilderna*/
+        order: 1;
+        /*elementet hamnar under #rektangel*/
+    }
+
+    .img-container img {
+        width: 100%;
+        /*tar upp hela kolumens bredd.*/
+        height: auto;
+        border-radius: 0px;
+        /*tar bort rundade kanter på bilderna. */
+    }
+
+    footer {
+        order: 2;
+        /*Sätter elementet längst ner på sidan*/
+    }
+
+    @media screen and (min-width: 601) and (max-width: 1024px) {
+
+
+        .img-container {
+            display: grid;
+            /* använder grid för att stapla bilderna i kolumner, 2 på 2 */
+            grid-template-columns: repeat(2, 2fr);
+            height: auto;
+            gap: 1%;
+            /*skapar mellanrum mellan bilderna*/
+        }
+
+        .img-container img {
+            width: 100%;
+            /*procenten anpassar sig efter viewport.*/
+            height: auto;
+        }
+    }
+
+    @media screen and (min-width: 1600px) {
+
+        #minwidth1600px { /*Försök till att låsa elementen storlek trots exapnderad viewport*/
+            body {
+                display: flex;
+                max-width: 1600px;
+            }
+        }
+
+
+    }
+}
